@@ -1,4 +1,4 @@
-use std::process::Command;
+use std::{env, process::Command};
 
 // TODO(DavidC) not pretty yet, but works.
 // - [ ] Separate out into separate methods, main calls at same abstraction level.
@@ -62,11 +62,14 @@ fn main() {
         }
     }
 
-    println!("Running \"neovide.exe\"");
-    let mut output = Command::new("neovide.exe")
+    let args: Vec<String> = env::args().skip(1).collect();
+
+    println!("Spawning \"neovide.exe\"");
+
+    Command::new("neovide.exe")
+        .current_dir(env::current_dir().unwrap())
         .envs(&env_vars)
+        .args(args)
         .spawn()
         .expect("Failed to run neovide.exe");
-
-    output.wait().expect("neovide didn't exit properly.");
 }
