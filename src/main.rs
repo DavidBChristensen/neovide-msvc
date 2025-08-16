@@ -39,6 +39,7 @@ fn main() {
 
     let vcvarsall_path = format!("{tools_path}\\VC\\Auxiliary\\Build\\vcvarsall.bat");
     println!("Running \"{vcvarsall_path}\"");
+
     let env_output = Command::new("cmd")
         .args(&["/C", &vcvarsall_path, "x64", "&&", "set"])
         .output()
@@ -63,7 +64,6 @@ fn main() {
     }
 
     let args: Vec<String> = env::args().skip(1).collect();
-
     println!("Spawning \"neovide.exe\"");
 
     Command::new("neovide.exe")

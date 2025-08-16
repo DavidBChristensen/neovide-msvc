@@ -1,3 +1,5 @@
+// Build for neovide-msvc.
+// Sets the icon for the executable.
 fn main() {
     #[cfg(target_os = "windows")]
     {
