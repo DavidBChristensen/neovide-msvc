@@ -8,8 +8,9 @@ use std::{
 /// The main entry point of the program.
 ///
 /// This function locates the most recent MSVC Tools installation, sets up the build environment
-/// by running vcvarsall.bat (depending on the architecture), parses the resulting environment variables,
-/// collects command-line arguments, and spawns neovide.exe with the inherited environment and arguments.
+/// by running vcvarsall.bat (depending on the architecture), parses the resulting environment
+/// variables, collects command-line arguments, and spawns neovide.exe with the inherited
+/// environment and arguments.
 ///
 /// # Errors
 ///
